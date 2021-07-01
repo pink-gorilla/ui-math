@@ -1,0 +1,14 @@
+{:name "ui-math"
+ :clj-require []
+ :cljs-namespace [pinkgorilla.math.math]
+ :cljs-bindings {}
+ :cljs-ns-bindings {}
+ :theme {:available  {}
+         :current {}}
+ :snippets [{:type :pinkie
+             :category :math
+             :id :math
+             :filename "snippets/math/math.edn"}]
+ ; modules and pinkie not yet via loader
+ :pinkie {}
+ :modules {}}
