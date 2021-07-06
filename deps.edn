@@ -2,7 +2,9 @@
          "resources" ; snippets
          ]
  :deps
- {org.clojure/clojure    {:mvn/version "1.10.3"}}
+ {org.clojure/clojure    {:mvn/version "1.10.3"}
+  org.pinkgorilla/pinkie {:mvn/version "0.3.6"} ; jsrender
+  }
  :aliases
  {;https://github.com/applied-science/deps-library
   :release
@@ -42,7 +44,7 @@
                                         :exclusions  [org.pinkgorilla/ui-math
                                                       org.pinkgorilla/gorilla-ui]}}
    :exec-fn goldly-server.app/goldly-server-run!
-   :exec-args {:profile "watch"
+   :exec-args {:profile "watch2"
                :config {:goldly {}}}}
 
 ;
