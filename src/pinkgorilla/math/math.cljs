@@ -28,7 +28,7 @@
    :dist true ; 'true to use webpacked version, false to use MathJax source files'
    })
 
-(defn- render-math [dom-node data-js]
+(defn render-math [dom-node data-js]
   (let [mathjax (.-MathJax js/window)
         ;options (clj->js options)
         options (.getMetricsFor mathjax dom-node true)]
