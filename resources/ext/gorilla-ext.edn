@@ -8,7 +8,7 @@
                  }
  :cljs-ns-bindings {}
  :pinkie {:p/math pinkgorilla.math.math/math}
- :lazy true
+ :lazy false ; getMetrixfor not found otherwise
  :snippets [{:type :pinkie
              :category :math
              :id :math
