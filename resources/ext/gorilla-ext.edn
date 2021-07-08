@@ -1,12 +1,12 @@
 {:name "ui-math"
  :clj-require []
- :theme {:available  {}
+ :theme {:available {}
          :current {}}
  :cljs-namespace [pinkgorilla.math.math]
  :cljs-bindings {'math pinkgorilla.math.math/math}
  :cljs-ns-bindings {}
  :pinkie {:p/math pinkgorilla.math.math/math}
- :modules {} ; modules not yet via loader
+ :lazy true
  :snippets [{:type :pinkie
              :category :math
              :id :math
