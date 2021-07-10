@@ -40,9 +40,8 @@
   ;; app
 
   :goldly
-  {:extra-deps {org.pinkgorilla/goldly {:mvn/version "0.3.14"
-                                        :exclusions  [org.pinkgorilla/ui-math
-                                                      org.pinkgorilla/gorilla-ui]}}
+  {:extra-deps {org.pinkgorilla/goldly {:mvn/version "0.3.16"
+                                        :exclusions  [org.pinkgorilla/ui-math]}}
    :exec-fn goldly-server.app/goldly-server-run!
    :exec-args {:profile "watch2"
                :config {:goldly {:lazy true}}}}
