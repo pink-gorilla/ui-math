@@ -5,12 +5,24 @@
     so we ship the compiled mathjax.js bundle
    "
   (:require
-   ;[taoensso.timbre :refer-macros (warn)]
-   [pinkie.pinkie :refer-macros [register-component]]
+   [taoensso.timbre :refer-macros [info warn]]
+   [reagent.core :as r]
    [pinkie.jsrender :refer [render-js]]
-   ["/pinkgorilla/math/mathinit" :as mathjax-init]))
+   ;["pinkgorilla/math/tex-svg-full.js" :as mj]
+   ["/pinkgorilla/math/mathinit" :as math]))
 
-(mathjax-init/mathinit)
+;; https://docs.mathjax.org/en/latest/web/configuration.html
+
+(defonce needs-init (atom true))
+(defonce math-loaded (r/atom false))
+
+(defn ensure-loaded! []
+  (when @needs-init
+    (reset! needs-init false)
+    (math/mathinit (fn []
+                     (info "mathjax is loaded!")
+                     (reset! math-loaded true))))
+  nil)
 
 #_(defn add-math-css []
     (let [mathjax (.-MathJax js/window)
@@ -38,12 +50,16 @@
                  #_(add-math-css))))))
 
 (defn ^{:category :ui}
-  math
+  math-impl
   "displays mathematical formulas"
   [{:keys [data options]}]
-  [render-js {:f render-math :data data}])
+  (ensure-loaded!)
+  (fn [{:keys [data options]}]
+    (if @math-loaded
+      [render-js {:f render-math :data data}]
+      [:p "math init.."])))
 
-
-
+(defn math [spec]
+  [math-impl spec])
 
 

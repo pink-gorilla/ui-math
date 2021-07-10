@@ -3,7 +3,7 @@
          ]
  :deps
  {org.clojure/clojure    {:mvn/version "1.10.3"}
-  org.pinkgorilla/pinkie {:mvn/version "0.3.6"} ; jsrender
+  org.pinkgorilla/pinkie {:mvn/version "0.3.11"} ; jsrender
   }
  :aliases
  {;https://github.com/applied-science/deps-library
@@ -40,12 +40,12 @@
   ;; app
 
   :goldly
-  {:extra-deps {org.pinkgorilla/goldly {:mvn/version "RELEASE"
+  {:extra-deps {org.pinkgorilla/goldly {:mvn/version "0.3.14"
                                         :exclusions  [org.pinkgorilla/ui-math
                                                       org.pinkgorilla/gorilla-ui]}}
    :exec-fn goldly-server.app/goldly-server-run!
    :exec-args {:profile "watch2"
-               :config {:goldly {}}}}
+               :config {:goldly {:lazy true}}}}
 
 ;
   }}

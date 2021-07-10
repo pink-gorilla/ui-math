@@ -1,4 +1,4 @@
 
- [:div.inline-block.bg-green-300.p-2.box-border #_{:style {:width 300
+ [:div.inline-block.bg-green-300.p-2.box-border {:style {:width 300
                                                            :height 100}}
   [:p/math {:data "(ax ^2 + bx + c = 0 )"}]]
